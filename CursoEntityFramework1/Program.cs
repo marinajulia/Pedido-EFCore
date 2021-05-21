@@ -16,7 +16,19 @@ namespace CursoEntityFramework1 {
             //}
 
             //InserirDados();
-            InserirDadosEmMassa();
+            //InserirDadosEmMassa();
+            ConsultarDados();
+        }
+
+        private static void ConsultarDados() {
+            using var db = new Data.ApplicationContext();
+            //var consultaPorSintaxe = (from c in db.Clientes where c.Id > 0 select c).ToList();
+            var consultaPorMetodo = db.Clientes.Where(p => p.Id > 0).OrderBy(p=>p.Id).ToList();
+            foreach (var cliente in consultaPorMetodo) {
+                Console.WriteLine($"Consultando cliente: {cliente.Id}");
+                //db.Clientes.Find(cliente.Id);
+                db.Clientes.FirstOrDefault(p=>p.Id==cliente.Id);
+            }
         }
         private static void InserirDadosEmMassa() {
             var produto = new Produto {
