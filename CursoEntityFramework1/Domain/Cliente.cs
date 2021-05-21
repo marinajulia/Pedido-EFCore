@@ -13,12 +13,12 @@ namespace CursoEntityFramework1.Domain {
         public int Id { get; set; }
         [Required]
         public string Nome { get; set; }
+
         [Column("Phone")]
         public string Telefone { get; set; }
         public string CEP { get; set; }
         public string Estado { get; set; }
         public string Cidade { get; set; }
-        public string Email { get; set; }
 
     }
 }

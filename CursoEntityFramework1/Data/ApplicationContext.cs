@@ -18,7 +18,7 @@ namespace CursoEntityFramework1.Data {
 
             optionsBuilder
                 .UseLoggerFactory(_logger)
-                .EnableSensitiveDataLogging()
+                .EnableSensitiveDataLogging()//mostra os dados
                 .UseSqlServer(@"Data Source=DESKTOP-8024PRG\SERVIDOR;Initial Catalog=CursoEFCore;Integrated Security=True");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder) {

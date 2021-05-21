@@ -15,12 +15,37 @@ namespace CursoEntityFramework1 {
             //    //regra de negócio
             //}
 
-            InserirDados();
+            //InserirDados();
+            InserirDadosEmMassa();
         }
+        private static void InserirDadosEmMassa() {
+            var produto = new Produto {
+                Descricao = "Sapato",
+                CodigoBarras = "1234567891234",
+                Valor = 10m,
+                TipoProduto = TipoProduto.MercadoriaParaRevenda,
+                Ativo = true
+            };
 
+            var cliente = new Cliente {
+                Nome = "Kobata",
+                CEP = "459",
+                Cidade = "Teste",
+                Estado = "SP",
+                Telefone = "9946",
+            };
+
+
+            using var db = new Data.ApplicationContext();
+
+            db.AddRange(produto, cliente);
+
+            var registros = db.SaveChanges();
+            Console.WriteLine($"Total de registros:{registros}");
+        }
         private static void InserirDados() {
             var produto = new Produto {
-                Descricao = "Produto teste",
+                Descricao = "LUCAS",
                 CodigoBarras = "1234567891234",
                 Valor = 10m,
                 TipoProduto = TipoProduto.MercadoriaParaRevenda,
