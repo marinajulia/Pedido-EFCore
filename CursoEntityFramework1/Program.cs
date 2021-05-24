@@ -2,6 +2,7 @@
 using CursoEntityFramework1.ValueObject;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CursoEntityFramework1 {
@@ -17,9 +18,45 @@ namespace CursoEntityFramework1 {
 
             //InserirDados();
             //InserirDadosEmMassa();
-            ConsultarDados();
+            //ConsultarDados();
+            //CadastrarPedido();
+            ConsultarPedidoCarregamentoAdiantado();
         }
 
+        private static void ConsultarPedidoCarregamentoAdiantado() {
+            using var db = new Data.ApplicationContext();
+            var pedidos = db.Pedidos.Include(p=>p.Itens).ThenInclude(p=>p.Produto).ToList();
+            Console.WriteLine(pedidos.Count);
+        }
+
+        private static void CadastrarPedido() {
+            using var db = new Data.ApplicationContext();
+
+            var cliente = db.Clientes.FirstOrDefault();
+            var produto = db.Produtos.FirstOrDefault();
+
+            var pedido = new Pedido {
+                ClienteId = cliente.Id,
+                IniciadoEm = DateTime.Now,
+                FinalizadoEm = DateTime.Now,
+                Observacao = "Pedido teste",
+                status = StatusPedido.Analise,
+                TipoFrete = TipoFrete.SemFrete,
+                Itens = new List<PedidoItem> {
+                    new PedidoItem {
+                        IdProduto = produto.Id,
+                        Desconto = 0,
+                        Quantidade =1,
+                        Valor=10,
+                    }
+                }
+
+
+            };
+
+            db.Pedidos.Add(pedido);
+            db.SaveChanges();
+        }
         private static void ConsultarDados() {
             using var db = new Data.ApplicationContext();
             //var consultaPorSintaxe = (from c in db.Clientes where c.Id > 0 select c).ToList();

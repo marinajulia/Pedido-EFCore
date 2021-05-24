@@ -5986,11 +5986,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Marina\\Desktop\\Pedido-EFCore\\CursoEntityFramework1\\CursoEntityFramework1.csproj",
+      "projectUniqueName": "C:\\Users\\Marina\\Desktop\\Teste\\Pedido-EFCore\\CursoEntityFramework1\\CursoEntityFramework1.csproj",
       "projectName": "CursoEntityFramework1",
-      "projectPath": "C:\\Users\\Marina\\Desktop\\Pedido-EFCore\\CursoEntityFramework1\\CursoEntityFramework1.csproj",
+      "projectPath": "C:\\Users\\Marina\\Desktop\\Teste\\Pedido-EFCore\\CursoEntityFramework1\\CursoEntityFramework1.csproj",
       "packagesPath": "C:\\Users\\Marina\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Marina\\Desktop\\Pedido-EFCore\\CursoEntityFramework1\\obj\\",
+      "outputPath": "C:\\Users\\Marina\\Desktop\\Teste\\Pedido-EFCore\\CursoEntityFramework1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

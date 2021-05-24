@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Fj+JaI2enRCxV/JXO5dU5P3BzvvuPuS/6s6qq5ZHJjGQNv3dDrzEv+16qhREsOHA9eSCuFeXbTyPR3EwKiY4XA==",
+  "dgSpecHash": "QO6nKb++PJRBs8tv2MoIQLwrw48xabVJYLrjt7vVw7bgkuMRGbvRi+F0ju2NDSH8af4XHX5oJbS2tWXyx3GepA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Marina\\Desktop\\Pedido-EFCore\\CursoEntityFramework1\\CursoEntityFramework1.csproj",
+  "projectFilePath": "C:\\Users\\Marina\\Desktop\\Teste\\Pedido-EFCore\\CursoEntityFramework1\\CursoEntityFramework1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Marina\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Marina\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
