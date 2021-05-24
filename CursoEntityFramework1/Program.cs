@@ -20,7 +20,26 @@ namespace CursoEntityFramework1 {
             //InserirDadosEmMassa();
             //ConsultarDados();
             //CadastrarPedido();
-            ConsultarPedidoCarregamentoAdiantado();
+            //ConsultarPedidoCarregamentoAdiantado();
+            AtualizarDados();
+        }
+
+        private static void AtualizarDados() {
+            using var db = new Data.ApplicationContext();
+            var cliente = db.Clientes.Find(4);
+            cliente.Nome = "Cliente alterado passo 2";
+
+            //--------outra forma (usam o mesmo save changes)
+            var clienteDesconectado = new {
+                Nome = "Cliente desconecto",
+                Telefone = "123"
+            };
+        
+            db.Entry(cliente).CurrentValues.SetValues(clienteDesconectado);
+            //db.Clientes.Update(cliente);
+            db.SaveChanges();
+
+
         }
 
         private static void ConsultarPedidoCarregamentoAdiantado() {
@@ -28,7 +47,6 @@ namespace CursoEntityFramework1 {
             var pedidos = db.Pedidos.Include(p=>p.Itens).ThenInclude(p=>p.Produto).ToList();
             Console.WriteLine(pedidos.Count);
         }
-
         private static void CadastrarPedido() {
             using var db = new Data.ApplicationContext();
 
