@@ -21,7 +21,19 @@ namespace CursoEntityFramework1 {
             //ConsultarDados();
             //CadastrarPedido();
             //ConsultarPedidoCarregamentoAdiantado();
-            AtualizarDados();
+            //AtualizarDados();
+            RemoverRegistro();
+        }
+
+        private static void RemoverRegistro() {
+            using var db = new Data.ApplicationContext();
+            var cliente = db.Clientes.Find(5);
+            //db.Clientes.Remove(cliente); qualquer uma dessas
+            //db.Remove(cliente);
+            db.Entry(cliente).State = EntityState.Deleted;
+
+            db.SaveChanges();
+
         }
 
         private static void AtualizarDados() {
@@ -41,7 +53,6 @@ namespace CursoEntityFramework1 {
 
 
         }
-
         private static void ConsultarPedidoCarregamentoAdiantado() {
             using var db = new Data.ApplicationContext();
             var pedidos = db.Pedidos.Include(p=>p.Itens).ThenInclude(p=>p.Produto).ToList();
