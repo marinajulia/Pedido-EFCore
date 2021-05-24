@@ -20,7 +20,8 @@ namespace CursoEntityFramework1.Data {
                 .UseLoggerFactory(_logger)
                 .EnableSensitiveDataLogging()//mostra os dados
                 .UseSqlServer(@"Data Source=DESKTOP-8024PRG\SERVIDOR;Initial Catalog=CursoEFCore;Integrated Security=True",
-                p=>p.EnableRetryOnFailure(maxRetryCount: 2, maxRetryDelay: TimeSpan.FromSeconds(5), errorNumbersToAdd: null));
+                p=>p.EnableRetryOnFailure(maxRetryCount: 2, maxRetryDelay: TimeSpan.FromSeconds(5), errorNumbersToAdd: null)
+                .MigrationsHistoryTable("curso_ef_core"));
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationContext).Assembly);
